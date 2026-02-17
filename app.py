@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from serpapi import GoogleSearch
 
 def compare(med_name):
     params = {
@@ -12,11 +13,10 @@ def compare(med_name):
         "gl": "in",
     }
 
-    search = serpapi.GoogleSearch(params)
+    search = GoogleSearch(params)
     results = search.get_dict()
-    shopping_results = results["shopping_results"]
+    shopping_results = results.get("shopping_results", [])
     return shopping_results
-
 
 c1,c2= st.columns(2)
 c1.image("e_pharmacy.png",width=200)
@@ -97,3 +97,4 @@ if med_name is not None:
         ax.pie(med_price, labels=medicine_comp,shadow=True)
         ax.axis("equal")
         st.pyplot(fig)
+
