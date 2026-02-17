@@ -17,7 +17,7 @@ def compare(med_name):
     results = search.get_dict()
     shopping_results = results["shopping_results"]
     return shopping_results
-    
+
 
 c1,c2= st.columns(2)
 c1.image("e_pharmacy.png",width=200)
@@ -38,7 +38,7 @@ if med_name is not None:
         lowest_price = float(shopping_results[0].get('price')[1:]) #
         lowest_price_index=0
         st.sidebar.image(shopping_results[0].get('thumbnail'))
-        
+
 
         if number != "":
          for i in range(int(number)):
@@ -46,7 +46,7 @@ if med_name is not None:
             current_price=float((shopping_results[i].get('price'))[1:])
             medicine_comp.append(shopping_results[i].get("source"))  #
             med_price.append(float((shopping_results[i].get('price'))[1:]))
-   
+       
 
             st.title(f"option{i+1}")
             
@@ -73,8 +73,8 @@ if med_name is not None:
 # this is best option
 
         st.title("Best Option:")
-        c1, c2 = st.columns(2)
 
+        c1, c2 = st.columns(2)
         c1.write("Company :")
         c2.write(shopping_results[lowest_price_index].get("source"))
 
@@ -98,4 +98,3 @@ if med_name is not None:
         ax.pie(med_price, labels=medicine_comp,shadow=True)
         ax.axis("equal")
         st.pyplot(fig)
-
