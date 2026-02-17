@@ -3,8 +3,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from serpapi import GoogleSearch
-
 def compare(med_name):
     params = {
         "engine": "google_shopping",
@@ -97,4 +95,5 @@ if med_name is not None:
         ax.pie(med_price, labels=medicine_comp,shadow=True)
         ax.axis("equal")
         st.pyplot(fig)
+
 
