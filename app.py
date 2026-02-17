@@ -64,7 +64,7 @@ for i in range(num_options):
 
                 c1.write("Buy Link:")
                 c2.write(f"[Link]({result.get('product_link')})")
-    """------------------------------------------------------------------"""
+    
 
                 # Check for lowest price
                 if current_price < lowest_price:
@@ -95,6 +95,7 @@ st.title("Best Option:")
             ax.pie(med_price, labels=medicine_comp, shadow=True, autopct='%1.1f%%')
             ax.axis("equal")
             st.pyplot(fig)
+
 
 
 
