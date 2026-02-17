@@ -46,15 +46,16 @@ if med_name.strip() != "":
 
 
 for i in range(num_options):
-                result = shopping_results[i]
-                current_price = parse_price(result.get("price"))
-                medicine_comp.append(result.get("source"))
-                med_price.append(current_price)
+    result = shopping_results[i]
+    current_price = parse_price(result.get("price"))
+    medicine_comp.append(result.get("source"))
+    med_price.append(current_price)
 
-                st.title(f"Option {i+1}")
-                c1, c2 = st.columns(2)
-                c1.write("Company:")
-                c2.write(result.get("source"))
+    st.title(f"Option {i+1}")
+    c1, c2 = st.columns(2)  # <- ये line aligned with st.title, same indentation
+    c1.write("Company:")
+    c2.write(result.get("source"))
+
 
                 c1.write("Medicine Name:")
                 c2.write(result.get("title"))
@@ -95,6 +96,7 @@ st.title("Best Option:")
             ax.pie(med_price, labels=medicine_comp, shadow=True, autopct='%1.1f%%')
             ax.axis("equal")
             st.pyplot(fig)
+
 
 
 
