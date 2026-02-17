@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 def compare(med_name):
     params = {
         "engine": "google_shopping",
@@ -15,7 +16,7 @@ def compare(med_name):
     results = search.get_dict()
     shopping_results = results["shopping_results"]
     return shopping_results
-
+    
 
 c1,c2= st.columns(2)
 c1.image("e_pharmacy.png",width=200)
@@ -44,6 +45,7 @@ if med_name is not None:
             current_price=float((shopping_results[i].get('price'))[1:])
             medicine_comp.append(shopping_results[i].get("source"))  #
             med_price.append(float((shopping_results[i].get('price'))[1:]))
+       
 
             st.title(f"option{i+1}")
             
@@ -61,7 +63,7 @@ if med_name is not None:
             c1.write("Buy Link :")
             c2.write("[Link](%s)" % url)
 
-            """------------------------------------------------------"""
+            """------------------------------------------------------""
 
             if current_price < lowest_price: #
               lowest_price=current_price
@@ -95,4 +97,3 @@ if med_name is not None:
         ax.pie(med_price, labels=medicine_comp,shadow=True)
         ax.axis("equal")
         st.pyplot(fig)
-
