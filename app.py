@@ -1,4 +1,5 @@
 import serpapi
+from serpapi import GoogleSearch
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -97,3 +98,4 @@ if med_name is not None:
         ax.pie(med_price, labels=medicine_comp,shadow=True)
         ax.axis("equal")
         st.pyplot(fig)
+
