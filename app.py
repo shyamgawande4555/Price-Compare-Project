@@ -97,3 +97,4 @@ if med_name is not None:
         ax.pie(med_price, labels=medicine_comp,shadow=True)
         ax.axis("equal")
         st.pyplot(fig)
+
