@@ -24,7 +24,7 @@ c2.header("E-pharmacy price comparison system")
 
 st.sidebar.title("Enter Name of Medicine:")
 med_name=st.sidebar.text_input("Enter Name here 👇:")
-number=st.sidebar.text_input("Enter Number of obtions here 👇:")
+number=st.sidebar.text_input("Enter Number of options here 👇:")
 
 medicine_comp=[]
 med_price=[]
@@ -95,3 +95,4 @@ if med_name is not None:
         ax.pie(med_price, labels=medicine_comp,shadow=True)
         ax.axis("equal")
         st.pyplot(fig)
+
